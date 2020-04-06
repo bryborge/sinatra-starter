@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-ENV['SINATRA_ENV'] ||= 'development'
-ENV['RACK_ENV'] ||= 'development'
-
 require 'bundler/setup'
 
-Bundler.require(:default, ENV['SINATRA_ENV'])
+# ENV['SINATRA_ENV'] ||= 'development'
+APP_ENV = ENV['RACK_ENV'] || 'development'
+
+Bundler.require(:default, APP_ENV.to_sym)
 
 require_all 'app'

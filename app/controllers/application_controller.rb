@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-#
-# Application Controller
-#
-# This is the base controller for the application.
-#
+# Base controller for the application.
 class ApplicationController < Sinatra::Base
   configure do
     set :public_dir, 'public'
@@ -15,6 +11,4 @@ class ApplicationController < Sinatra::Base
     @name = params[:name]
     erb :index
   end
-
-  # More routes ...
 end
