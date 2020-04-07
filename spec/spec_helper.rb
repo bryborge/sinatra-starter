@@ -14,9 +14,9 @@ end
 ActiveRecord::Base.logger = nil
 
 RSpec.configure do |config|
-  config.run_all_when_eerything_filtered = true
+  config.run_all_when_everything_filtered = true
   config.filter_run :focus
-  config.inclide Rack::Test::Methods
+  config.include Rack::Test::Methods
   config.include Capybara::DSL
   DatabaseCleaner.strategy = :truncation
 

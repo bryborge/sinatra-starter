@@ -12,6 +12,7 @@ gem 'sinatra-activerecord'
 
 group :development, :test do
   gem 'capybara'
+  gem 'database_cleaner-active_record'
   gem 'pry'
   gem 'rspec'
   gem 'rubocop', require: false
