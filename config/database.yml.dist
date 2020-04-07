@@ -1,0 +1,22 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: potatosack_dev
+  pool: 2
+  username: root
+  password:
+
+test: &test
+  <<: *default
+  database: potatosack_test
+
+integration:
+  <<: *test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: potatosack
+  pool: 2
+  username: ENV['db_username']
+  password: ENV['db_password']

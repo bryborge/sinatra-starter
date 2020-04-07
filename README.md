@@ -26,11 +26,39 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-Coming Soon ...
+1.  Git
+1.  Ruby and RubyGems
+1.  Bundler
+1.  Postgresql
 
 ### Installation
 
-Coming Soon ...
+1.  Clone this repo down to your machine.
+
+1.  Install application dependencies.
+
+    ```sh
+    bundle install
+    ```
+
+1.  Setup Postgres by logging in as the postgres user and creating the role for this project.
+
+    ```sh
+    su - postgres
+    create role todo with createdb login password 'todo';
+    ```
+
+1.  Create the database.
+
+    ```sh
+    bundle exec rake db:create
+    ```
+
+1.  Run the application and navigate in your browser to `localhost:9393`.
+
+    ```sh
+    bundle exec shotgun
+    ```
 
 ## Running Tests
 

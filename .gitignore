@@ -3,3 +3,6 @@
 
 # Ignore ide files
 .idea/
+
+# Ignore configs
+config/database.yml
