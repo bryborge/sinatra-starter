@@ -1,14 +1,14 @@
 development: &default
   adapter: postgresql
   encoding: unicode
-  database: potatosack_dev
+  database: todo_dev
   pool: 2
-  username: root
-  password:
+  username: todo
+  password: todo
 
 test: &test
   <<: *default
-  database: potatosack_test
+  database: todo_test
 
 integration:
   <<: *test
@@ -16,7 +16,7 @@ integration:
 production:
   adapter: postgresql
   encoding: unicode
-  database: potatosack
+  database: todo
   pool: 2
   username: ENV['db_username']
   password: ENV['db_password']
