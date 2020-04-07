@@ -26,10 +26,12 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-1.  Git
-1.  Ruby and RubyGems
-1.  Bundler
-1.  Postgresql
+1.  [Bundler](https://bundler.io/) - A Dependency manager for Ruby applications
+1.  [Git](https://git-scm.com/) - An open source distributed version control system 
+1.  [Postgresql](https://www.postgresql.org/) - An open source object-relational database system
+1.  [Ruby](https://www.ruby-lang.org/) - A dynamic open source programming language with a focus on simplicity and
+    productivity
+1.  [RubyGems](https://rubygems.org/) - A package manager for the Ruby programming language
 
 ### Installation
 
@@ -39,6 +41,12 @@ See deployment for notes on how to deploy the project on a live system.
 
     ```sh
     bundle install
+    ```
+
+1.  Create `database.yml` file.
+
+    ```sh
+    cp config/database.yml{.dist,}
     ```
 
 1.  Setup Postgres by logging in as the postgres user and creating the role for this project.
@@ -78,8 +86,8 @@ Coming Soon ...
 
 ## Built With
 
-*   [Bundler](https://bundler.io/) - a Dependency manager for Ruby applications
-*   [Sinatra](http://sinatrarb.com/) - a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for quickly creating web applications in Ruby
+*   [Sinatra](http://sinatrarb.com/) - A [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for quickly
+    creating web applications in Ruby
 
 ## Contributing
 
