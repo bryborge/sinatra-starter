@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 5000
+    depends_on:
+      - 'db'
+    hostname: app
+    ports:
+      - '5000:5000'
+    restart: unless-stopped
+    volumes:
+      - '.:/app'
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+    volumes:
+      - './data:/var/lib/postgresql/data'
