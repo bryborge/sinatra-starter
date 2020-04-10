@@ -3,7 +3,6 @@
 ENV['SINATRA_ENV'] = 'test'
 
 require_relative '../config/environment'
-require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
 
@@ -14,10 +13,15 @@ end
 ActiveRecord::Base.logger = nil
 
 RSpec.configure do |config|
-  config.run_all_when_everything_filtered = true
-  config.filter_run :focus
-  config.include Rack::Test::Methods
+  FactoryBot.definition_file_paths = %w[./factories ./test/factories ./spec/factories]
+  FactoryBot.find_definitions
+
+  config.filter_run_when_matching :focus
   config.include Capybara::DSL
+  config.include Rack::Test::Methods
+  config.include Shoulda::Matchers::ActiveModel
+  config.include Shoulda::Matchers::ActiveRecord
+
   DatabaseCleaner.strategy = :truncation
 
   config.before do
