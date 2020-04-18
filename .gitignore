@@ -7,5 +7,6 @@
 # Ignore configs
 config/database.yml
 
-# Ignore data
-data/
+# Ignore data (but keep directory)
+data/*
+!data/.gitkeep
