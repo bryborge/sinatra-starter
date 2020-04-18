@@ -3,6 +3,7 @@
 
 # Ignore ide files
 .idea/
+.vscode/
 
 # Ignore configs
 config/database.yml
