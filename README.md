@@ -1,7 +1,6 @@
-# To Do Tracker (Ruby Edition)
+# Sinatra MVC
 
-The primary function of this project is to allow an authenticated user to track their To Do list and items in one
-convenient place.
+The primary function of this project is yet to be determined.
 
 Tangentially,
 this project showcases the project structure I use when creating applications using the
@@ -10,10 +9,6 @@ framework and the [Model, View, Controller (MVC)](https://en.wikipedia.org/wiki/
 design pattern.
 
 ## Build Status
-
-Coming Soon ...
-
-## Code Style
 
 Coming Soon ...
 
@@ -26,21 +21,33 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-1.  [Bundler](https://bundler.io/) - A Dependency manager for Ruby applications
-1.  [Git](https://git-scm.com/) - An open source distributed version control system 
-1.  [Postgresql](https://www.postgresql.org/) - An open source object-relational database system
+1.  [Docker](https://docs.docker.com/get-started/) - Build, run, and share applications with containers.
+1.  [Docker Compose](https://docs.docker.com/compose/) - Docker's multi-container management.
+1.  [Git](https://git-scm.com/) - An open source distributed version control system.
+
+While the following isn't required to run the project,
+they will be useful for development purposes.
+
+1.  [Bundler](https://bundler.io/) - A Dependency manager for Ruby applications.
 1.  [Ruby](https://www.ruby-lang.org/) - A dynamic open source programming language with a focus on simplicity and
-    productivity
-1.  [RubyGems](https://rubygems.org/) - A package manager for the Ruby programming language
+    productivity.
+1.  [RubyGems](https://rubygems.org/) - A package manager for the Ruby programming language.
 
 ### Installation
 
 1.  Clone this repo down to your machine.
 
-1.  Install application dependencies.
-
     ```sh
-    bundle install
+    git clone https://github.com/sonofborge/sinatra-mvc.git
+    ```
+    
+    Conversely,
+    if you have configured connecting to
+    [Github with SSH](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh),
+    you can run the following:
+    
+    ```sh
+    git@github.com:sonofborge/sinatra-mvc.git
     ```
 
 1.  Create `database.yml` file.
@@ -48,25 +55,18 @@ See deployment for notes on how to deploy the project on a live system.
     ```sh
     cp config/database.yml{.dist,}
     ```
+    
+    This is where your database connection for the application is configured.
+    By default,
+    it's configured to connect to the database running in the `db` container.
 
-1.  Setup Postgres by logging in as the postgres user and creating the role for this project.
-
-    ```sh
-    su - postgres
-    create role todo with createdb login password 'todo';
-    ```
-
-1.  Create the database.
+1.  Initialize and run the application in container.
 
     ```sh
-    bundle exec rake db:create
+    docker-compose up -d
     ```
-
-1.  Run the application and navigate in your browser to `localhost:9393`.
-
-    ```sh
-    bundle exec shotgun
-    ```
+    
+1.  Navigate to `localhost:5000` in a browser.
 
 ## Running Tests
 
