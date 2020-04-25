@@ -21,3 +21,7 @@ group :development, :test do
   gem 'shotgun'
   gem 'shoulda-matchers'
 end
+
+group :test do
+  gem 'simplecov', require: false
+end

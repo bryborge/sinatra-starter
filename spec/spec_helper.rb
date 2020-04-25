@@ -2,6 +2,9 @@
 
 ENV['SINATRA_ENV'] = 'test'
 
+require 'simplecov'
+SimpleCov.start # Must be before application code is required
+
 require_relative '../config/environment'
 require 'capybara/rspec'
 require 'capybara/dsl'

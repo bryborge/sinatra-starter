@@ -1,6 +1,16 @@
 version: '3.7'
 
 services:
+  db:
+    environment:
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+    image: postgres
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+    volumes:
+      - 'db_data:/var/lib/postgresql/data'
+
   app:
     build: .
     command: bundle exec shotgun config.ru -o 0.0.0.0 -p 5000
@@ -13,13 +23,5 @@ services:
     volumes:
       - '.:/app'
 
-  db:
-    hostname: db
-    image: postgres
-    ports:
-      - '5432:5432'
-    restart: unless-stopped
-    environment:
-      - 'POSTGRES_HOST_AUTH_METHOD=trust'
-    volumes:
-      - './data:/var/lib/postgresql/data'
+volumes:
+  db_data:

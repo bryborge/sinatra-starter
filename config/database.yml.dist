@@ -3,13 +3,13 @@ default: &default
   encoding: unicode
   host: db
   username: postgres
-  password: password
+  password:
   pool: 5
 
 development:
   <<: *default
-  database: todo_development
+  database: sinatra_mvc_development
 
 test:
   <<: *default
-  database: todo_test
+  database: sinatra_mvc_test
