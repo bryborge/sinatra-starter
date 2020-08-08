@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   db:
-    environment:
-      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+    env_file:
+      - '.env'
     image: postgres
     ports:
       - '5432:5432'

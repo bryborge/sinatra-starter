@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord'
 gem 'bcrypt'
+gem 'dotenv'
 gem 'pg'
 gem 'rake'
 gem 'require_all'

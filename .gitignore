@@ -10,3 +10,4 @@
 
 # Ignore configs
 config/database.yml
+.env
