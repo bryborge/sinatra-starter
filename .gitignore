@@ -5,9 +5,6 @@
 .idea/
 .vscode/
 
-# Ignore env variables
-.env
-
 # Ignore configs
 config/database.yml
 .env
