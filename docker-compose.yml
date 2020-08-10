@@ -12,7 +12,7 @@ services:
       - '5432:5432'
     restart: unless-stopped
     volumes:
-      - 'db_data:/var/lib/postgresql/data'
+      - './src/db/data:/var/lib/postgresql/data'
 
   app:
     build:
@@ -21,6 +21,8 @@ services:
     command: bundle exec shotgun config.ru -o 0.0.0.0 -p 3000
     depends_on:
       - 'db'
+    env_file:
+      - '.env'
     hostname: app
     ports:
       - '3000:3000'
@@ -30,4 +32,4 @@ services:
 
 volumes:
   app: # for hot-reloading
-  db_data:
+  db:

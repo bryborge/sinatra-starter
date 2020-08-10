@@ -11,3 +11,6 @@ coverage/
 # Ignore configs
 database.yml
 .env
+
+# Ignore data
+src/db/data/
