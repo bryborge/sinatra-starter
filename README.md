@@ -53,12 +53,20 @@ they may be useful for development purposes.
 1.  Create `database.yml` file.
 
     ```sh
-    cp config/database.yml{.dist,}
+    cp src/config/database.yml{.dist,}
     ```
     
     This is where your database connection for the application is configured.
     By default,
     it's configured to connect to the database running in the `db` container.
+
+1.  Create `.env` file.
+
+    ```sh
+    cp .env{.dist,}
+    ```
+
+    This is where the environment variables that Docker Compose uses are defined.
 
 1.  Initialize and run the application in container.
 
