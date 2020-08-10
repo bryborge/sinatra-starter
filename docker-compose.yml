@@ -12,16 +12,19 @@ services:
       - 'db_data:/var/lib/postgresql/data'
 
   app:
-    build: .
-    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 5000
+    build:
+      context: .
+      dockerfile: docker/app.dockerfile
+    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 3000
     depends_on:
       - 'db'
     hostname: app
     ports:
-      - '5000:5000'
+      - '3000:3000'
     restart: unless-stopped
     volumes:
-      - '.:/app'
+      - './src:/current'
 
 volumes:
+  app: # for hot-reloading
   db_data:
