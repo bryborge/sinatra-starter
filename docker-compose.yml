@@ -1,25 +1,35 @@
 version: '3.7'
 
 services:
-  app:
-    build: .
-    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 5000
-    depends_on:
-      - 'db'
-    hostname: app
-    ports:
-      - '5000:5000'
-    restart: unless-stopped
-    volumes:
-      - '.:/app'
-
   db:
-    hostname: db
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile.db
+    env_file:
+      - '.env'
     image: postgres
     ports:
       - '5432:5432'
     restart: unless-stopped
-    environment:
-      - 'POSTGRES_HOST_AUTH_METHOD=trust'
     volumes:
-      - './data:/var/lib/postgresql/data'
+      - './src/db/data:/var/lib/postgresql/data'
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile.dev
+    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 3000
+    depends_on:
+      - 'db'
+    env_file:
+      - '.env'
+    hostname: app
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    volumes:
+      - './src:/current'
+
+volumes:
+  app: # for hot-reloading
+  db:

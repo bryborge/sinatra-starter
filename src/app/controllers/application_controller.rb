@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    @name = params[:name]
     erb :index
   end
 end

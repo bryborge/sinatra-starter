@@ -26,7 +26,7 @@ See deployment for notes on how to deploy the project on a live system.
 1.  [Git](https://git-scm.com/) - An open source distributed version control system.
 
 While the following isn't required to run the project,
-they will be useful for development purposes.
+they may be useful for development purposes.
 
 1.  [Bundler](https://bundler.io/) - A Dependency manager for Ruby applications.
 1.  [Ruby](https://www.ruby-lang.org/) - A dynamic open source programming language with a focus on simplicity and
@@ -66,11 +66,40 @@ they will be useful for development purposes.
     docker-compose up -d
     ```
     
-1.  Navigate to `localhost:5000` in a browser.
+1.  Navigate to `localhost:3000` in a browser.
+
+    You should see `Hello, World!` on a basic html page.
+
+#### Migrations
+
+At this time,
+there are no migrations or anything to run to prepare the database.
+
+#### ActiveRecord console
+
+One of the niceties in Ruby on Rails is that you can hop into an ActiveRecord console and poke around at how the data
+hangs together.
+
+The `console` rake task will replicate this behavior.
+
+Example:
+
+```sh
+docker exec -it sinatra-mvc_app_1 bundle exec rake console
+```
 
 ## Running Tests
 
-Coming Soon ...
+Since the application and database run in containers,
+you need to specify the command you want to run
+(in this case `bundle exec rspec`)
+in the app container.
+
+Example:
+
+```sh
+docker exec -it sinatra-mvc_app_1 bundle exec rspec
+```
 
 ### End-to-end Tests
 
@@ -78,7 +107,16 @@ Coming Soon ...
 
 ### Code Style Tests
 
-Coming Soon ...
+As with running tests,
+you need to specify the command you want to run
+(in this case `bundle exec rubocop`)
+in the app container.
+
+Example:
+
+```sh
+docker exec -it sinatra-mvc_app_1 bundle exec rubocop
+```
 
 ## Deployment
 

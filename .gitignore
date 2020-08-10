@@ -5,9 +5,12 @@
 .idea/
 .vscode/
 
-# Ignore configs
-config/database.yml
+# Ignore test files
+coverage/
 
-# Ignore data (but keep directory)
-data/*
-!data/.gitkeep
+# Ignore configs
+database.yml
+.env
+
+# Ignore data
+src/db/data/
