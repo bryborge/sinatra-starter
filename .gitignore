@@ -5,6 +5,9 @@
 .idea/
 .vscode/
 
+# Ignore test files
+coverage/
+
 # Ignore configs
-config/database.yml
+database.yml
 .env
