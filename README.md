@@ -8,10 +8,6 @@ this project showcases the project structure I use when creating applications us
 framework and the [Model, View, Controller (MVC)](https://en.wikipedia.org/wiki/Model-view-controller)
 design pattern.
 
-## Build Status
-
-Coming Soon ...
-
 ## Getting Started
 
 These instructions will get a copy of this project up and running on your local machine for development and testing
@@ -108,10 +104,6 @@ Example:
 ```sh
 docker exec -it sinatra-mvc_app_1 bundle exec rspec
 ```
-
-### End-to-end Tests
-
-Coming Soon ...
 
 ### Code Style Tests
 
