@@ -67,7 +67,7 @@ they may be useful for development purposes.
 1.  Initialize and run the application in container.
 
     ```sh
-    docker-compose up -d
+    docker compose up -d
     ```
     
 1.  Navigate to `localhost:3000` in a browser.

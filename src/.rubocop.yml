@@ -2,5 +2,6 @@ Layout/LineLength:
   Max: 120
 
 AllCops:
+  NewCops: disable
   Exclude:
     - db/schema.rb
