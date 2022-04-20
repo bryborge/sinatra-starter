@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
+ENV['SINATRA_ENV'] ||= 'development'
+ENV['RACK_ENV'] ||= 'development'
+
 require 'bundler/setup'
-
-APP_ENV = ENV['SINATRA_ENV'] || 'development'
-
-Bundler.require(:default, APP_ENV.to_sym)
+Bundler.require(:default, ENV['SINATRA_ENV'])
 
 require_all 'app'

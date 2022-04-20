@@ -70,7 +70,7 @@ they may be useful for development purposes.
     docker compose up -d
     ```
     
-1.  Navigate to `localhost:3000` in a browser.
+1.  Navigate to `localhost:5678` in a browser.
 
     You should see `Hello, World!` on a basic html page.
 

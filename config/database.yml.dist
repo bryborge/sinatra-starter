@@ -1,15 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
   pool: 5
 
 development:
   <<: *default
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: <%= ENV['PROJECT_NAME'] || 'sinatra-mvc' %>_development
+  username: <%= ENV['DB_USERNAME'] || 'postgres' %>
+  password: <%= ENV['DB_PASSWORD'] || 'password' %>
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
 
 test:
   <<: *default
-  database: sinatra_mvc_test
+  database: <%= ENV['PROJECT_NAME'] || 'sinatra-mvc' %>_test
+  username: <%= ENV['DB_USERNAME'] || 'postgres' %>
+  password: <%= ENV['DB_PASSWORD'] || 'password' %>
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
