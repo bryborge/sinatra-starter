@@ -3,9 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'activerecord'
-gem 'bcrypt'
-gem 'dotenv'
 gem 'pg'
+gem 'puma'
 gem 'rake'
 gem 'require_all'
 gem 'sinatra'
@@ -19,7 +18,6 @@ group :development, :test do
   gem 'pry'
   gem 'rspec'
   gem 'rubocop', require: false
-  gem 'shotgun'
   gem 'shoulda-matchers'
 end
 

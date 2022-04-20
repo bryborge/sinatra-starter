@@ -1,35 +1,49 @@
 version: '3.7'
 
 services:
-  db:
+  web:
     build:
       context: .
-      dockerfile: docker/db/Dockerfile.db
-    env_file:
-      - '.env'
-    image: postgres
-    ports:
-      - '5432:5432'
-    restart: unless-stopped
-    volumes:
-      - './src/db/data:/var/lib/postgresql/data'
-
-  app:
-    build:
-      context: .
-      dockerfile: docker/app/Dockerfile.dev
-    command: bundle exec shotgun config.ru -o 0.0.0.0 -p 3000
+      dockerfile: docker/dev/Dockerfile
+    container_name: ${PROJECT_NAME}_web
     depends_on:
-      - 'db'
+      - db
     env_file:
-      - '.env'
+      - .env
+    entrypoint: [ 'sh', './docker/startup.sh' ]
+    environment:
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      TZ: America/Los_Angeles
     hostname: app
+    image: ${PROJECT_NAME}:rubyland
+    links:
+      - db
+    platform: linux/amd64
     ports:
-      - '3000:3000'
+      - target: ${APP_PORT}
+        published: 5678
+        protocol: tcp
+        mode: host
     restart: unless-stopped
     volumes:
-      - './src:/current'
+      - .:/var/app/current
+
+  db:
+    container_name: ${PROJECT_NAME}_db
+    environment:
+      POSTGRES_DB: ${PROJECT_NAME}_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    image: postgres:12.10
+    ports:
+      - target: ${DB_PORT}
+        published: 5432
+        protocol: tcp
+        mode: host
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
 
 volumes:
-  app: # for hot-reloading
-  db:
+  db_data:
