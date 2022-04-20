@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Base controller for the application
 class ApplicationController < Sinatra::Base
   configure do
     set :public_dir, 'public'

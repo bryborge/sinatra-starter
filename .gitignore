@@ -13,4 +13,4 @@ database.yml
 .env
 
 # Ignore data
-src/db/data/
+db/data/
