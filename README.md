@@ -40,10 +40,11 @@ These instructions will walk you through the process of setting up this project 
 4.  We're now ready to spin it all up.
 
     ```shell
-    docker-compose up -d
+    docker compose up -d
     ```
 
-5.  In a browser, navigate to `localhost:<PORT>`, where `<PORT>` is the port number specified in your `.env` file.
+5.  In a browser, navigate to `localhost:<APP_PORT>`, where `<APP_PORT>` is the application port number specified in 
+    your `.env` file.
 
 ## License
 
