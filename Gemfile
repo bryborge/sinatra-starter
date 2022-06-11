@@ -7,14 +7,17 @@ gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'require_all'
-gem 'sinatra'
+gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
+
 
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner-active_record'
   gem 'factory_bot'
   gem 'faker'
+  gem 'fuubar' # Insta-failing progress bar for rspec.
   gem 'pry'
   gem 'rspec'
   gem 'rubocop', require: false

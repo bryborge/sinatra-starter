@@ -21,6 +21,7 @@ RSpec.configure do |config|
 
   config.filter_run_when_matching :focus
   config.include Capybara::DSL
+  config.include FactoryBot::Syntax::Methods
   config.include Rack::Test::Methods
   config.include Shoulda::Matchers::ActiveModel
   config.include Shoulda::Matchers::ActiveRecord

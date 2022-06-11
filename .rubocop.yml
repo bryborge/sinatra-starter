@@ -1,7 +1,12 @@
 Layout/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
 AllCops:
   NewCops: disable
   Exclude:
+    - db/migrate/*
     - db/schema.rb

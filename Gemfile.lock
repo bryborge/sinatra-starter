@@ -35,12 +35,16 @@ GEM
       activesupport (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
+    fuubar (2.5.1)
+      rspec-core (~> 3.0)
+      ruby-progressbar (~> 1.4)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
@@ -111,6 +115,12 @@ GEM
     sinatra-activerecord (2.0.25)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-contrib (2.2.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.2.0)
+      sinatra (= 2.2.0)
+      tilt (~> 2.0)
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -128,6 +138,7 @@ DEPENDENCIES
   database_cleaner-active_record
   factory_bot
   faker
+  fuubar
   pg
   pry
   puma
@@ -139,6 +150,7 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
+  sinatra-contrib
 
 BUNDLED WITH
    2.3.7
